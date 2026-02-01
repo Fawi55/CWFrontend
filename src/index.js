@@ -1,13 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
-// Global axios baseURL (works for local + production)
-axios.defaults.withCredentials = true;
-
-if (process.env.REACT_APP_API_URL) {
-  axios.defaults.baseURL = process.env.REACT_APP_API_URL;
-}
-
 import { createRoot } from 'react-dom/client';
 import { Provider } from "react-redux";
 import { positions, transitions, Provider as AlertProvider } from "react-alert";
@@ -18,6 +11,12 @@ import App from "./App";
 // Replace BrowserRouter import with HashRouter
 import { HashRouter } from "react-router-dom";
 
+// Global axios baseURL (works for local + production)
+axios.defaults.withCredentials = true;
+
+if (process.env.REACT_APP_API_URL) {
+  axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+}
 const theme = createTheme();
 const options = {
   timeout: 5000,
